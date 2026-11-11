@@ -23,9 +23,7 @@
       </li>
       <% end %>
     <% end %>
-    <li>
-      <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-info" %>
-    </li>
   </ul>
+  <%= render "reviews/form" %>
 
 </div>
