@@ -1,0 +1,20 @@
+<div class="container my-5">
+  <h1>Restaurants</h1>
+  <%= link_to "Add restaurant", new_restaurant_path, class: "btn btn-primary mb-2" %>
+  <div class="d-flex flex-wrap gap-4">
+    <% @restaurants.each do |restaurant| %>
+      <div class="card-trip w-25">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to restaurant.name, restaurant_path(restaurant), class: "text-decoration-none" %></h2>
+            <p><%= restaurant.category.capitalize %></p>
+            <p><%= restaurant.address %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= restaurant.phone_number %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

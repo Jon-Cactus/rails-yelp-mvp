@@ -1,0 +1,31 @@
+<div class="container my-5">
+  <h1>Restaurants</h1>
+  <div class="d-flex flex-wrap gap-4">
+    <div class="card-trip w-25">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= @restaurant.name %></h2>
+          <p><%= @restaurant.category.capitalize %></p>
+          <p><%= @restaurant.address %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= @restaurant.phone_number %></h2>
+      </div>
+    </div>
+  </div>
+  <%= link_to "< Restaurants", restaurants_path, class: "text-decoration-none" %>
+  <h3>Reviews</h3>
+  <ul>
+    <% if @restaurant.reviews.any? %>
+      <% @restaurant.reviews.each do |review| %>
+      <li>
+        <strong><%= "#{review.rating}/5"%></strong><%= " | #{review.content}" %>
+      </li>
+      <% end %>
+    <% end %>
+    <li>
+      <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-info" %>
+    </li>
+  </ul>
+
+</div>
